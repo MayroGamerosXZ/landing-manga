@@ -1,0 +1,213 @@
+/* =========================================
+   VARIABLES Y RESETEO BÁSICO
+   ========================================= */
+:root {
+    --bg-color: #f4f4f4; /* Gris claro para el fondo */
+    --sidebar-bg: #ffffff; /* Blanco para los paneles */
+    --primary-color: #ff6740; /* Naranja estilo MangaDex */
+    --text-dark: #333333;
+    --text-light: #666666;
+    --border-color: #e0e0e0;
+}
+
+/* Quitamos los márgenes por defecto del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Selector de TIPO */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    display: flex; /* Esto es clave: pone la barra lateral y el contenido uno al lado del otro */
+    min-height: 100vh;
+}
+
+/* =========================================
+   BARRA LATERAL (Uso de selector de ID)
+   ========================================= */
+#sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color); /* Box model: Border */
+    padding: 2rem 1rem; /* Box model: Padding con unidades relativas */
+    position: fixed; /* Deja la barra fija a la izquierda aunque bajes en la página */
+    height: 100vh;
+}
+
+/* NUEVO: Logo centrado */
+#sidebar .logo {
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-align: center; 
+}
+
+/* NUEVO: Estilos para que la imagen del logo encaje bien */
+#sidebar .logo img {
+    width: 100%;
+    max-width: 150px; /* Controla qué tan grande se ve el logo */
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem auto; /* Centra la imagen y le da espacio abajo */
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    margin-bottom: 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: bold;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* PSEUDOCLASES: Requisito de la rúbrica (:hover y :focus-visible) */
+.nav-links a:hover, 
+.nav-links a:focus-visible {
+    background-color: #ffe8e0;
+    color: var(--primary-color);
+}
+
+/* =========================================
+   CONTENIDO PRINCIPAL
+   ========================================= */
+main {
+    margin-left: 250px; /* Empuja el contenido a la derecha para que la barra lateral no lo tape */
+    padding: 2rem;
+    width: calc(100% - 250px);
+}
+
+/* Encabezado superior */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem; /* Box model: Margin */
+    background-color: var(--sidebar-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.search-bar {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    width: 300px;
+}
+
+/* =========================================
+   TARJETA DEL MANGA PRINCIPAL (Uso de Clases)
+   ========================================= */
+.popular-titles {
+    margin-bottom: 3rem;
+}
+
+.manga-card {
+    display: flex;
+    background-color: var(--sidebar-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+    padding: 1.5rem;
+    gap: 2rem;
+}
+
+/* ¡Aquí arreglamos la imagen de la portada! */
+.manga-card img {
+    width: 220px; /* Forzamos a que la imagen tenga un ancho específico */
+    height: 300px; /* Y un alto específico */
+    object-fit: cover; /* Evita que la imagen se deforme si no es de esa proporción */
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Otra pseudoclase: hace un zoom ligero a la imagen al pasar el mouse */
+.manga-card img:hover {
+    transform: scale(1.05);
+}
+
+.manga-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.manga-info h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.tags {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.manga-info p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.read-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    align-self: flex-start; /* Evita que el botón ocupe todo el ancho */
+    transition: background-color 0.3s;
+}
+
+.read-btn:hover, 
+.read-btn:focus-visible {
+    background-color: #e55a30; /* Naranja más oscuro al pasar el mouse */
+}
+
+/* =========================================
+   SECCIÓN DE ACTUALIZACIONES (Grid)
+   ========================================= */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.mini-card {
+    background-color: var(--sidebar-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    font-weight: bold;
+}
+
+/* Pie de página */
+footer {
+    margin-top: 4rem;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-color);
+}

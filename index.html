@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MangaDex Clone - Inicio</title>
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Barra lateral de navegación -->
+    <nav id="sidebar">
+        <div class="logo">
+            <!-- NUEVO: Aquí está la imagen de los Kamen Rider funcionando como logo -->
+            <img src="assets/portada1.jpg" alt="Logo de MangaReader">
+            <h2>MangaReader</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">🏠 Home</a></li>
+            <li><a href="#">🔖 Follows</a></li>
+            <li><a href="#">📚 Titles</a></li>
+            <li><a href="#">👥 Community</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal a la derecha -->
+    <main>
+        <!-- Encabezado superior -->
+        <header class="top-header">
+            <input type="text" placeholder="Search..." class="search-bar">
+            <div class="user-profile">👤 Perfil</div>
+        </header>
+
+        <!-- Sección 1: Títulos Populares -->
+        <section class="popular-titles">
+            <h1>Popular New Titles</h1>
+            
+            <div class="manga-card">
+                <!-- NUEVO: Aquí va el nombre de la nueva imagen del manga que descargues -->
+                <img src="assets/tsundere.jpg" alt="Portada del manga romántico con protagonista tsundere">
+                <div class="manga-info">
+                    <h2>El Secreto de la Tsundere</h2>
+                    <span class="tags">COMEDY | ROMANCE</span>
+                    <p>Una comedia romántica sobre dos estudiantes que se reencuentran en la preparatoria. Las cosas se complican cuando ella no quiere admitir sus verdaderos sentimientos. ¡Su vida escolar está a punto de volverse un caos!</p>
+                    <a href="#" class="read-btn">Leer ahora</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 2: Últimas Actualizaciones -->
+        <section class="recent-updates">
+            <h2>Latest Updates</h2>
+            <p>Explora los capítulos recién subidos por la comunidad.</p>
+            <!-- Aquí agregaremos una cuadrícula de mangas más pequeña con CSS -->
+            <div class="grid-container">
+                <div class="mini-card">Capítulo 14 - Recién subido</div>
+                <div class="mini-card">Capítulo 128 - Recién subido</div>
+                <div class="mini-card">Capítulo 5 - Recién subido</div>
+            </div>
+        </section>
+        
+        <!-- Pie de página -->
+        <footer>
+            <p>&copy; 2026 MangaReader Clone. Proyecto de Desarrollo Web.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
