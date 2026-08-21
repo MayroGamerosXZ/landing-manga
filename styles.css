@@ -1,10 +1,11 @@
 /* =========================================
    VARIABLES Y RESETEO BÁSICO
    ========================================= */
+/* [VIDEO-GUIA: 1. VARIABLES CSS] Definimos colores principales en :root para mantener consistencia y fácil mantenimiento. */
 :root {
-    --bg-color: #f4f4f4; /* Gris claro para el fondo */
-    --sidebar-bg: #ffffff; /* Blanco para los paneles */
-    --primary-color: #ff6740; /* Naranja estilo MangaDex */
+    --bg-color: #f4f4f4;
+    --sidebar-bg: #ffffff;
+    --primary-color: #ff6740;
     --text-dark: #333333;
     --text-light: #666666;
     --border-color: #e0e0e0;
@@ -17,12 +18,18 @@
     box-sizing: border-box;
 }
 
+/* [VIDEO-GUIA: 2. SCROLL SUAVE] Agregamos desplazamiento fluido para cuando hacemos click en los enlaces internos del menú. */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Selector de TIPO */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-dark);
-    display: flex; /* Esto es clave: pone la barra lateral y el contenido uno al lado del otro */
+    /* [VIDEO-GUIA: 3. FLEXBOX] Esto es clave: pone la barra lateral y el contenido principal uno al lado del otro. */
+    display: flex; 
     min-height: 100vh;
 }
 
@@ -34,25 +41,25 @@ body {
     background-color: var(--sidebar-bg);
     border-right: 1px solid var(--border-color); /* Box model: Border */
     padding: 2rem 1rem; /* Box model: Padding con unidades relativas */
-    position: fixed; /* Deja la barra fija a la izquierda aunque bajes en la página */
+    /* [VIDEO-GUIA: 4. POSITION FIXED] Deja la barra fija a la izquierda aunque bajes en la página. */
+    position: fixed; 
     height: 100vh;
+    overflow-y: auto;
 }
 
-/* NUEVO: Logo centrado */
 #sidebar .logo {
     margin-bottom: 2rem;
     color: var(--primary-color);
     text-align: center; 
 }
 
-/* NUEVO: Estilos para que la imagen del logo encaje bien */
 #sidebar .logo img {
     width: 100%;
-    max-width: 150px; /* Controla qué tan grande se ve el logo */
+    max-width: 150px; 
     height: auto;
     display: block;
-    margin: 0 auto 1rem auto; /* Centra la imagen y le da espacio abajo */
-    border-radius: 8px; /* Bordes ligeramente redondeados */
+    margin: 0 auto 1rem auto;
+    border-radius: 8px;
 }
 
 .nav-links {
@@ -73,7 +80,7 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* PSEUDOCLASES: Requisito de la rúbrica (:hover y :focus-visible) */
+/* [VIDEO-GUIA: 5. PSEUDOCLASES] Requisito de la rúbrica (:hover y :focus-visible). Añadimos interactividad. */
 .nav-links a:hover, 
 .nav-links a:focus-visible {
     background-color: #ffe8e0;
@@ -94,11 +101,17 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem; /* Box model: Margin */
+    margin-bottom: 2rem;
     background-color: var(--sidebar-bg);
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* [VIDEO-GUIA: 6. FORMULARIO BÚSQUEDA] Estilos para el campo de búsqueda funcional visualmente. */
+.search-form {
+    display: flex;
+    gap: 0.5rem;
 }
 
 .search-bar {
@@ -106,37 +119,62 @@ main {
     border: 1px solid var(--border-color);
     border-radius: 4px;
     width: 300px;
+    outline: none;
+}
+
+.search-bar:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(255, 103, 64, 0.2);
+}
+
+.search-btn {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-btn:hover {
+    background-color: #e55a30;
 }
 
 /* =========================================
-   TARJETA DEL MANGA PRINCIPAL (Uso de Clases)
+   SECCIONES GENERALES
    ========================================= */
-.popular-titles {
-    margin-bottom: 3rem;
+section {
+    margin-bottom: 4rem; /* Separación clara entre secciones (Titles, Updates, Follows, Community) */
+    scroll-margin-top: 2rem; /* Al navegar con las anclas del sidebar, deja espacio superior. */
 }
 
+/* =========================================
+   TARJETA DEL MANGA PRINCIPAL
+   ========================================= */
 .manga-card {
     display: flex;
     background-color: var(--sidebar-bg);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     padding: 1.5rem;
     gap: 2rem;
 }
 
-/* ¡Aquí arreglamos la imagen de la portada! */
+/* [VIDEO-GUIA: 7. CALIDAD DE IMAGEN] Mejoramos la calidad visual con 'object-fit: contain' y fondo oscuro para evitar recortes raros o distorsión. */
 .manga-card img {
-    width: 220px; /* Forzamos a que la imagen tenga un ancho específico */
-    height: 300px; /* Y un alto específico */
-    object-fit: cover; /* Evita que la imagen se deforme si no es de esa proporción */
+    width: 220px;
+    height: 330px;
+    object-fit: contain; /* Esto asegura que la imagen no se recorte ni deforme */
+    background-color: #2a2a2a; /* Fondo en caso de que la imagen no cubra todo */
     border-radius: 4px;
     box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
+    flex-shrink: 0;
 }
 
-/* Otra pseudoclase: hace un zoom ligero a la imagen al pasar el mouse */
 .manga-card img:hover {
     transform: scale(1.05);
 }
@@ -173,18 +211,19 @@ main {
     padding: 0.8rem 1.5rem;
     border-radius: 4px;
     font-weight: bold;
-    align-self: flex-start; /* Evita que el botón ocupe todo el ancho */
+    align-self: flex-start;
     transition: background-color 0.3s;
 }
 
 .read-btn:hover, 
 .read-btn:focus-visible {
-    background-color: #e55a30; /* Naranja más oscuro al pasar el mouse */
+    background-color: #e55a30;
 }
 
 /* =========================================
    SECCIÓN DE ACTUALIZACIONES (Grid)
    ========================================= */
+/* [VIDEO-GUIA: 8. CSS GRID] Usamos Grid para organizar las tarjetas pequeñas de manera responsiva. */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -194,17 +233,106 @@ main {
 
 .mini-card {
     background-color: var(--sidebar-bg);
-    padding: 1.5rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    font-weight: bold;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mini-card:hover, .mini-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.mini-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top; /* Enfoca la parte superior de la portada si se recorta */
+    display: block;
+}
+
+.mini-card-info {
+    padding: 1rem;
+}
+
+.mini-card-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.mini-card-info span {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: normal;
+}
+
+/* =========================================
+   NUEVAS SECCIONES: FOLLOWS Y COMMUNITY
+   ========================================= */
+.empty-state {
+    background-color: var(--sidebar-bg);
+    padding: 3rem;
+    text-align: center;
+    border-radius: 8px;
+    border: 2px dashed var(--border-color);
+    margin-top: 1.5rem;
+}
+
+.empty-state .icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+}
+
+.forum-post {
+    display: flex;
+    background-color: var(--sidebar-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.post-avatar {
+    font-size: 2.5rem;
+    margin-right: 1.5rem;
+    background-color: #eee;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-content h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.post-content p {
+    color: var(--text-light);
+    margin-bottom: 0.8rem;
+}
+
+.post-meta {
+    font-size: 0.8rem;
+    color: #999;
+    font-style: italic;
 }
 
 /* Pie de página */
 footer {
-    margin-top: 4rem;
     text-align: center;
     color: var(--text-light);
     font-size: 0.9rem;

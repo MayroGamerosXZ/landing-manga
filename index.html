@@ -3,63 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- [VIDEO-GUIA: 1. METADATOS] Configuramos el idioma, codificación y responsive design para que la página sea semántica desde la raíz. -->
     <title>MangaDex Clone - Inicio</title>
     <!-- Enlace al archivo CSS externo -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="home">
 
+    <!-- [VIDEO-GUIA: 2. NAVEGACIÓN] Usamos la etiqueta semántica <nav> para el menú lateral. -->
     <!-- Barra lateral de navegación -->
     <nav id="sidebar">
         <div class="logo">
-            <!-- NUEVO: Aquí está la imagen de los Kamen Rider funcionando como logo -->
-            <img src="assets/portada1.jpg" alt="Logo de MangaReader">
-            <h2>MangaReader</h2>
+            <a href="#home" style="text-decoration:none; color:inherit;">
+                <img src="assets/portada1.jpg" alt="Logo de MangaReader">
+                <h2>MangaReader</h2>
+            </a>
         </div>
         <ul class="nav-links">
-            <li><a href="#">🏠 Home</a></li>
-            <li><a href="#">🔖 Follows</a></li>
-            <li><a href="#">📚 Titles</a></li>
-            <li><a href="#">👥 Community</a></li>
+            <!-- [VIDEO-GUIA: 3. ENLACES INTERNOS] Usamos href con anclas (#) para navegar dentro de la misma página sin usar JavaScript. -->
+            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#follows">🔖 Follows</a></li>
+            <li><a href="#titles">📚 Titles</a></li>
+            <li><a href="#community">👥 Community</a></li>
         </ul>
     </nav>
 
+    <!-- [VIDEO-GUIA: 4. CONTENIDO PRINCIPAL] Usamos <main> para indicar dónde reside el contenido más importante. -->
     <!-- Contenido principal a la derecha -->
     <main>
         <!-- Encabezado superior -->
         <header class="top-header">
-            <input type="text" placeholder="Search..." class="search-bar">
+            <!-- [VIDEO-GUIA: 5. FORMULARIO HTML] Integramos la barra de búsqueda en un formulario. Al dar Enter, nos redirige a la sección #titles usando solo HTML. -->
+            <form action="#titles" class="search-form">
+                <input type="search" placeholder="Buscar mangas..." class="search-bar" aria-label="Buscar mangas" required>
+                <button type="submit" class="search-btn" aria-label="Botón de búsqueda">🔍</button>
+            </form>
             <div class="user-profile">👤 Perfil</div>
         </header>
 
+        <!-- [VIDEO-GUIA: 6. SECCIONES SEMÁNTICAS] Cada bloque temático usa <section> con un ID único para la navegación. -->
         <!-- Sección 1: Títulos Populares -->
-        <section class="popular-titles">
+        <section id="titles" class="popular-titles">
             <h1>Popular New Titles</h1>
             
             <div class="manga-card">
-                <!-- NUEVO: Aquí va el nombre de la nueva imagen del manga que descargues -->
-                <img src="assets/tsundere.jpg" alt="Portada del manga romántico con protagonista tsundere">
+                <!-- Para evitar distorsión, mejoramos las reglas CSS aplicadas a estas imágenes. -->
+                <img src="assets/tsundere.jpg" alt="Portada del manga El Secreto de la Tsundere">
                 <div class="manga-info">
-                    <h2>El Secreto de la Tsundere</h2>
+                    <h2>El Secreto de la Tomboy</h2>
                     <span class="tags">COMEDY | ROMANCE</span>
                     <p>Una comedia romántica sobre dos estudiantes que se reencuentran en la preparatoria. Las cosas se complican cuando ella no quiere admitir sus verdaderos sentimientos. ¡Su vida escolar está a punto de volverse un caos!</p>
+                    <a href="#" class="read-btn">Leer ahora</a>
+                </div>
+            </div>
+            
+            <div class="manga-card">
+                <img src="assets/1ad73486-bf1f-492b-a821-86c3414110ac.jpg" alt="Portada de Wotakoi">
+                <div class="manga-info">
+                    <h2>Wotakoi: Love is Hard for Otaku</h2>
+                    <span class="tags">SLICE OF LIFE | ROMANCE | COMEDY</span>
+                    <p>Narumi, una oficinista que oculta su estilo de vida fujoshi, y Hirotaka, un apuesto y capaz hombre de compañía que es un otaku de los videojuegos. Ambos parecen perfectos el uno para el otro, pero el amor es difícil para los otakus.</p>
+                    <a href="#" class="read-btn">Leer ahora</a>
+                </div>
+            </div>
+
+            <div class="manga-card">
+                <img src="assets/55c88bab-b253-48c8-9d94-221f9473952a.jpg" alt="Portada de Sono Bisque Doll wa Koi wo Suru">
+                <div class="manga-info">
+                    <h2>Sono Bisque Doll wa Koi wo Suru</h2>
+                    <span class="tags">ROMANCE | SCHOOL LIFE</span>
+                    <p>Wakana Gojo es un estudiante de secundaria que sueña con convertirse en un maestro artesano de muñecas Hina. Su vida cambia cuando Marin Kitagawa, la chica más popular de su clase, descubre su talento y le pide ayuda para hacer cosplay.</p>
                     <a href="#" class="read-btn">Leer ahora</a>
                 </div>
             </div>
         </section>
 
         <!-- Sección 2: Últimas Actualizaciones -->
-        <section class="recent-updates">
+        <section id="updates" class="recent-updates">
             <h2>Latest Updates</h2>
             <p>Explora los capítulos recién subidos por la comunidad.</p>
-            <!-- Aquí agregaremos una cuadrícula de mangas más pequeña con CSS -->
             <div class="grid-container">
-                <div class="mini-card">Capítulo 14 - Recién subido</div>
-                <div class="mini-card">Capítulo 128 - Recién subido</div>
-                <div class="mini-card">Capítulo 5 - Recién subido</div>
+                <div class="mini-card">
+                    <img src="assets/717e5c78-69bd-46e9-a5b4-dc3ca143d4a4.jpg" alt="Portada de Hanamiya">
+                    <div class="mini-card-info">
+                        <h3>Kimi no Hanamiya</h3>
+                        <span>Capítulo 14 - Recién subido</span>
+                    </div>
+                </div>
+                <div class="mini-card">
+                    <img src="assets/7ab29404-0ebd-4862-ad4e-e4ea1ffe231f.jpg" alt="Manga Cover misterioso">
+                    <div class="mini-card-info">
+                        <h3>Komi-san wa, Komyushou desu.</h3>
+                        <span>Capítulo 128 - Recién subido</span>
+                    </div>
+                </div>
+                <div class="mini-card">
+                    <img src="assets/d3e909b9-c667-48a5-beec-ac96f23fa228.jpg" alt="Manga Cover de aventura">
+                    <div class="mini-card-info">
+                        <h3>Yagate Kimi ni Naru</h3>
+                        <span>Capítulo 5 - Recién subido</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nueva Sección: Follows -->
+        <section id="follows" class="follows-section">
+            <h2>Your Follows</h2>
+            <p>Aquí aparecen los mangas que estás siguiendo. ¡No te pierdas ninguna actualización!</p>
+            <div class="empty-state">
+                <span class="icon">🔖</span>
+                <p>Aún no sigues ningún manga. ¡Explora la sección de títulos para agregar algunos!</p>
+                <a href="#titles" class="read-btn">Explorar Títulos</a>
+            </div>
+        </section>
+
+        <!-- Nueva Sección: Community -->
+        <section id="community" class="community-section">
+            <h2>Community Forums</h2>
+            <p>Discute los últimos capítulos y comparte recomendaciones con otros lectores.</p>
+            <div class="forum-post">
+                <div class="post-avatar">👤</div>
+                <div class="post-content">
+                    <h4>¿Alguien más emocionad@ por el nuevo arco de Sono Bisque?</h4>
+                    <p>¡El último capítulo me dejó sin palabras! Marin está increíble con su nuevo cosplay...</p>
+                    <span class="post-meta">Publicado por OtakuFan99 hace 2 horas</span>
+                </div>
+            </div>
+            <div class="forum-post">
+                <div class="post-avatar">👤</div>
+                <div class="post-content">
+                    <h4>Recomendaciones de manga estilo Wotakoi</h4>
+                    <p>Estoy buscando más historias de romance entre adultos en el trabajo. ¿Alguna sugerencia?</p>
+                    <span class="post-meta">Publicado por MangaLover hace 5 horas</span>
+                </div>
             </div>
         </section>
         
+        <!-- [VIDEO-GUIA: 7. FOOTER] Cerramos con la etiqueta semántica de pie de página. -->
         <!-- Pie de página -->
         <footer>
             <p>&copy; 2026 MangaReader Clone. Proyecto de Desarrollo Web.</p>

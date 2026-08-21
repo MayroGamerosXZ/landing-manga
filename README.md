@@ -1,30 +1,51 @@
 <div align="center">
   <h1>📚 MangaReader Clone</h1>
-  <p><em>Una landing page semántica y responsiva inspirada en plataformas de lectura como MangaDex.</em></p>
+  <p><em>Una landing page semántica, accesible y responsiva inspirada en plataformas de lectura como MangaDex.</em></p>
 
   <!-- Logos / Badges de tecnologías -->
-  ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-  ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git">
 </div>
 
 ---
 
 ## 📖 Sobre el Proyecto
-Esta es una landing page construida **exclusivamente con HTML5 y CSS3**. El objetivo principal es presentar una interfaz moderna, limpia y adaptable para la exploración y lectura de manga. El proyecto cumple con estrictos requerimientos de diseño sin depender de ningún script de JavaScript o framework externo.
+
+Este proyecto es una **Landing Page** construida **exclusivamente con HTML5 y CSS3**. El objetivo principal es presentar una interfaz moderna, limpia y adaptable para la exploración y lectura de manga, demostrando el dominio de etiquetas semánticas, estilos en cascada y principios de accesibilidad web, sin depender de JavaScript.
 
 ## ✨ Características Principales
-* **Arquitectura Semántica:** Uso riguroso de etiquetas HTML5 (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`) para mejorar la accesibilidad del sitio.
-* **Diseño Responsivo (RWD):** Maquetación estructurada combinando el poder de **CSS Flexbox** y **CSS Grid** para asegurar que el contenido se adapte a cualquier tamaño de pantalla.
-* **Gestión de Tema:** Implementación de **Variables CSS** (Custom Properties) para un mantenimiento ágil y centralizado del esquema de colores.
-* **Micro-interacciones:** Retroalimentación visual fluida para el usuario utilizando pseudoclases avanzadas (`:hover`, `:focus-visible`).
-* **Cero JavaScript:** Toda la estructura y la lógica visual son manejadas al 100% mediante hojas de estilo.
 
-## 🚀 Instrucciones de Ejecución local
+*   **Arquitectura Semántica:** Uso riguroso de etiquetas HTML5 (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`) para dotar de significado estructural a la página.
+*   **Diseño Responsivo (RWD):** Maquetación estructurada combinando **CSS Flexbox** para el layout general y **CSS Grid** para las cuadrículas de mangas.
+*   **Gestión de Variables:** Implementación de **Variables CSS** (`:root`) para un mantenimiento ágil del esquema de colores.
+*   **Micro-interacciones y UX:** Efectos de transición suaves utilizando pseudoclases avanzadas (`:hover`, `:focus-within`, `:focus-visible`).
+*   **Accesibilidad (a11y):** Inclusión de atributos `aria-label`, textos alternativos (`alt`) robustos y estructuración lógica de encabezados.
+*   **Navegación Interna:** Implementación de anclas HTML para una navegación funcional y fluida (`scroll-behavior: smooth`).
 
-Sigue estos pasos para desplegar el proyecto en tu entorno de desarrollo.
+## 🚀 Ejecución Local
 
-### 1. Obtener el proyecto (Clonar)
-Si aún no tienes el código en tu equipo, abre tu terminal y ejecuta el siguiente comando para clonar el repositorio:
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone https://github.com/MayroGamerosXZ/landing-manga.git
+    ```
+2.  **Abrir el proyecto:**
+    Abre la carpeta en tu editor de código preferido (ej. Cursor o VS Code).
+3.  **Ejecutar con Live Server:**
+    Utiliza la extensión **Live Server** para abrir `index.html`. Esto levantará un servidor local (típicamente en `http://127.0.0.1:5500`).
 
-```bash
-git clone [https://github.com/TU_USUARIO/TU_REPOSITORIO.git](https://github.com/TU_USUARIO/TU_REPOSITORIO.git)
+## 📂 Estructura del Proyecto
+
+```text
+/
+├── index.html        # Estructura principal y semántica.
+├── styles.css        # Estilos, Flexbox, Grid y Custom Properties.
+├── assets/           # Directorio contenedor de portadas de manga.
+└── README.md         # Documentación del proyecto.
+```
+
+## 👨‍💻 Autor
+
+**MayroGamerosXZ**
+*   [GitHub Profile](https://github.com/MayroGamerosXZ)
+*   *Proyecto de Desarrollo Web.*
